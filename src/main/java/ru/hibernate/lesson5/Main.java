@@ -5,21 +5,24 @@ public class Main {
     public static void main(String[] args) {
         SessionFactoryUtils sessionFactoryUtils = new SessionFactoryUtils();
         sessionFactoryUtils.init();
-            try {
+        try {
+            ProductDao product = new ProductDao(sessionFactoryUtils);
+            System.out.println(product.findById(2l));
+            System.out.println(product.saveOrUpdate(new Product(1l,"Coca", 23)));
+            System.out.println(product.saveOrUpdate(new Product("Mars", 55)));
+            System.out.println(product.findAll());
+            product.deleteById(1l);
+            System.out.println(product.findAll());
 
-
-            } catch (Exception e){
-                e.printStackTrace();
-            } finally {
-                sessionFactoryUtils.shotdown();
-            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sessionFactoryUtils.shotdown();
+        }
     }
 }
 
-        /*1.Создайте сущность Product(Long id,String title,int price)и таблицу в базе данных
-        для хранения объектов этой сущности;
-
-        2.Создайте класс ProductDao и реализуйте в нем логику выполнения CRUD-операций над сущностью
+        /*1 2.Создайте класс ProductDao и реализуйте в нем логику выполнения CRUD-операций над сущностью
         Product(Product findById(Long id),List<Product> findAll(),void deleteById(Long id),
         Product saveOrUpdate(Product product));
 
