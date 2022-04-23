@@ -21,11 +21,3 @@ public class Main {
         }
     }
 }
-
-        /*1 2.Создайте класс ProductDao и реализуйте в нем логику выполнения CRUD-операций над сущностью
-        Product(Product findById(Long id),List<Product> findAll(),void deleteById(Long id),
-        Product saveOrUpdate(Product product));
-
-        3.*Вшить ProductDao в веб-проект,и показывать товары,лежащие в базе данных.Помните что в
-        таком случае SessionFactory или обертку над ней надо будет делать в виде Spring бина.*/
-
